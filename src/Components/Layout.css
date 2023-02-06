@@ -1,0 +1,176 @@
+
+/* Layout of the Messages diplayed */
+.dailog-panel-lg, .dailog-panel-sm, .chat-box{
+    display: flex;
+    background-color: hsl(0, 0%, 100%);
+    padding: var(--spacing-lg);
+    border-radius: 10px;
+    margin-bottom: var(--spacing-xl);
+}
+.dailog-panel-lg  > div:first-child, .dailog-panel-sm .voting-panel{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color:hsl(228, 33%, 97%);
+    border-radius: 10px;
+}
+.dailog-panel-lg  > div:first-child{
+    height: var(--height-md);
+    flex-direction: column; 
+    padding: var(--spacing-sm); 
+    margin-right: var(--spacing-lg);
+}
+.dailog-panel-lg .voting-panel > div, .dailog-panel-sm .voting-panel > div{
+    color: hsl(239, 57%, 85%);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    cursor: pointer;
+}
+.dailog-panel-sm .voting-panel .no-of-vote, .dailog-panel-lg .voting-panel .no-of-vote{
+    color: hsl(238, 40%, 52%);
+}
+.dailog-panel-lg > div:first-child > div:hover{
+    color: hsl(238, 40%, 52%);
+}
+.dailog-panel-lg > div:last-child{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.chat-title{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+}
+.chat-title > div:first-child, .action-panel > div, .action-panel{
+    display: flex;
+    align-items: center;
+}
+.action-panel h3{
+    margin-right: var(--spacing-lg);
+}
+.action-panel{
+    cursor: pointer;
+}
+.chat-title > div:last-child > div:hover{
+    opacity: 0.5;
+}
+.avatar{
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+}
+.reply-icon{
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
+
+/* Layout of the Reply panel */
+.reply-panel{
+    margin-left: var(--spacing-xl);
+    padding-left: var(--spacing-xl);
+    border-left: 0.15rem solid hsl(223, 19%, 93%);
+}
+
+/* Layout of Chat typing panel */
+.chat-box-edit{
+    display: none;
+}
+.chat-box .avatar{
+    margin-right: var(--spacing-lg);
+}
+.chat-box form{
+    display: flex;
+    flex-grow: 1;
+    height: var(--height-sm);
+}
+.chat-box textarea, .chat-box input[type=submit], .update-panel textarea, .update-panel input[type=submit]{
+    font-family: 'Rubik', sans-serif;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.chat-box textarea, .update-panel textarea{
+    width: 100%;
+    font-size: var(--font-size-md);
+    line-height: var(--font-line-height-lg);
+    resize: none;
+    border: 2px solid hsl(223, 19%, 93%);
+    margin-right: var(--spacing-lg);
+    padding: var(--spacing-sm);
+}
+.chat-box input[type=submit], .update-panel input[type=submit]{
+    height: 45%;
+    padding: var(--spacing-xsm) var(--spacing-md);
+    font-size: var(--font-size-md);
+    font-weight: 400;
+    border:none;
+    color: hsl(0, 0%, 100%);
+    background-color: hsl(238, 40%, 52%);
+}
+.chat-box input[type=submit]:hover, .update-panel input[type=submit]:hover{
+    opacity: 0.5;
+}
+
+/* Layout of Updating panel */
+.update-panel form{
+    display: flex;
+    flex-direction: column;
+    height: var(--height-lg);
+}
+.update-panel textarea{
+    height: 75%;
+    margin-bottom:var(--spacing-md);
+}
+.update-panel input[type=submit]{
+    height: 25%;
+    padding: var(--spacing-xsm) var(--spacing-sm);
+    align-self: end;
+}
+
+
+@media (max-width: 991.98px) {
+    .dailog-panel-sm{
+        flex-direction: column;
+    }
+    .dailog-panel-sm > div:last-child{
+        display: flex;
+        justify-content: space-between;
+        height: var(--voting-panel-height);
+    }
+    .dailog-panel-sm .voting-panel{
+        width: var(--height-md);
+        flex-direction: row;
+        margin-top: var(--spacing-md)
+    }
+    .voting-panel > div:first-child, .voting-panel > div:last-child{
+        padding: var(--spacing-md);
+    }
+
+    .chat-title{
+        justify-content: initial;
+    }
+    .reply-panel{
+        margin-left: 0;
+    }
+
+    .chat-box{
+        flex-direction: column;
+        position: relative;
+    }
+    .chat-box .avatar{
+        position: absolute;
+        bottom: var(--spacing-sm);
+    }
+    .chat-box form{
+        flex-direction: column;
+    }
+    .chat-box input[type=submit]{
+        width: var( --button-width);
+        height: 80%;
+        align-self: end;
+        margin-top: var(--spacing-md);
+    }
+
+    .update-panel input[type=submit]{
+        width: calc( var(--button-width) + 5%);
+    }
+} 
