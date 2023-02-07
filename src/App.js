@@ -9,8 +9,8 @@ function App() {
   const [user, setUser]= useState(null);
 
   const getData= async()=>{
-      const response1= await fetch("https://my-json-server.typicode.com/Soaphub/chatserver/comments?_embed=replies");
-      const response2= await fetch("https://my-json-server.typicode.com/Soaphub/chatserver/currentUser");
+      const response1= await fetch("https://json-server-vercel-ruby.vercel.app/comments?_embed=replies");
+      const response2= await fetch("https://json-server-vercel-ruby.vercel.app/currentUser");
       const jasonData1= await response1.json();
       const jasonData2= await response2.json();
       setData(jasonData1);

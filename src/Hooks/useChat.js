@@ -36,7 +36,7 @@ const UseChat = () => {
     }
     
     const postData1= (commentData)=>{
-        fetch("https://my-json-server.typicode.com/Soaphub/chatserver/comments", {
+        fetch("https://json-server-vercel-ruby.vercel.app/comments", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -73,7 +73,7 @@ const UseChat = () => {
     }
 
     const postData2= (id, replyData)=>{
-        fetch("https://my-json-server.typicode.com/Soaphub/chatserver/comments/"+id+"/replies", {
+        fetch("https://json-server-vercel-ruby.vercel.app/comments/"+id+"/replies", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -102,7 +102,7 @@ const UseChat = () => {
         const id = Math.trunc(calc);
 
         if(Number.isInteger(calc)){
-            fetch("https://my-json-server.typicode.com/Soaphub/chatserver/comments/"+ id+"/replies", {
+            fetch("https://json-server-vercel-ruby.vercel.app/comments/"+ id+"/replies", {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
@@ -110,7 +110,7 @@ const UseChat = () => {
                 body: JSON.stringify({    content: comment  })
             })
         }else{
-            fetch("https://my-json-server.typicode.com/Soaphub/chatserver/comments/"+ id+ "/replies?id=" + calc, {
+            fetch("https://json-server-vercel-ruby.vercel.app/comments/"+ id+ "/replies/" + calc, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
@@ -126,14 +126,14 @@ const UseChat = () => {
         const commentID= Math.trunc(calc);
 
         if(Number.isInteger(calc)){
-            fetch("https://my-json-server.typicode.com/Soaphub/chatserver/comments/" + commentID, {
+            fetch("https://json-server-vercel-ruby.vercel.app/comments/" + commentID, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
                 }
             })
         }else{
-            fetch("https://my-json-server.typicode.com/Soaphub/chatserver/comments/" + commentID+ "/replies?id=" + calc, {
+            fetch("https://json-server-vercel-ruby.vercel.app/comments/" + commentID+ "/replies/" + calc, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
