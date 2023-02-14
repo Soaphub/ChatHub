@@ -1,29 +1,22 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import "./App.css"
 import Comment from "./Components/Comment";
 import ChatBox from "./Components/ChatBox";
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchPosts} from './redux/fetch'
+
 
 function App() {
-  
-  const [data, setData]= useState(null);
-  const [user, setUser]= useState(null);
+  const {data, user}= useSelector((state) => state.counter);
+  const dispatch = useDispatch()
 
-  const getData= async()=>{
-      const response1= await fetch("https://json-server-vercel-ruby.vercel.app/comments?_embed=replies");
-      const response2= await fetch("https://json-server-vercel-ruby.vercel.app/currentUser");
-      const jasonData1= await response1.json();
-      const jasonData2= await response2.json();
-      setData(jasonData1);
-      setUser(jasonData2);
-  }
-  
-  useEffect(()=> {
-    getData();
-  },[])
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, [dispatch]);
 
   return (
     <div className="body">
-      { data && 
+      { (data && user) &&
       <>
         <Comment data={data} userData={user}/>
 	      <ChatBox data={data} userData={user}/>

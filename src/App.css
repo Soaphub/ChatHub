@@ -19,6 +19,7 @@
     --height-md: 150px;
     --height-lg: 200px;
     
+    --font-size-sm: 1.1rem;
     --font-size-md: 1.2rem;
     --font-size-lg: 1.3rem;
     --font-line-height-lg: 1.4;
@@ -30,7 +31,7 @@ h1{
     margin-left: var(--spacing-md);
 }
 h2{
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-sm);
     color: hsl(211, 10%, 45%);
     font-weight: 400;
     margin-left: var(--spacing-md);
@@ -79,6 +80,7 @@ p{
         --height-md: 90px;
         --height-lg: 120px;
         
+        --font-size-sm: 0.7rem;
         --font-size-md: 0.8rem;
         --font-size-lg: 0.85rem;
         --font-line-height-lg: 1.2;
@@ -108,6 +110,7 @@ p{
         --height-md: 110px;
         --height-lg: 150px;
         
+        --font-size-sm: 0.8rem;
         --font-size-md: 0.9rem;
         --font-size-lg: 1rem;
         --font-line-height-lg: 1.3;
@@ -137,6 +140,7 @@ p{
         --height-md: 130px;
         --height-lg: 170px;
         
+        --font-size-sm: 0.9rem;
         --font-size-md: 1rem;
         --font-size-lg: 1.1rem;
         --font-line-height-lg: 1.4;
@@ -166,8 +170,9 @@ p{
         --height-md: 115px;
         --height-lg: 150px;
         
+        --font-size-sm: 0.85rem;
         --font-size-md: 1rem;
-        --font-size-lg: 1rem;
+        --font-size-lg: 1.05rem;
         --font-line-height-lg: 1.1;
     }
 } 
@@ -190,8 +195,9 @@ p{
         --height-md: 130px;
         --height-lg: 175px;
         
+        --font-size-sm: 0.9rem;
         --font-size-md: 1rem;
-        --font-size-lg: 1.1rem;
+        --font-size-lg: 1.05rem;
         --font-line-height-lg: 1.2;
     }
 }
@@ -210,8 +216,9 @@ p{
         --icon-size: 0.9rem;
         --avatar-size: 2.8rem;
         
-        --font-size-md: 1.1rem;
-        --font-size-lg: 1.2rem;
+        --font-size-sm: 0.9rem;
+        --font-size-md: 1rem;
+        --font-size-lg: 1.1rem;
         --font-line-height-lg: 1.3;
     }
 }

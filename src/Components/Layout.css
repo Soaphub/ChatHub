@@ -1,6 +1,10 @@
+html {
+    scroll-behavior: smooth;
+  }
+
 
 /* Layout of the Messages diplayed */
-.dailog-panel-lg, .dailog-panel-sm, .chat-box{
+.dailog-panel-lg, .dailog-panel-sm, .chat-box, .popup-box{
     display: flex;
     background-color: hsl(0, 0%, 100%);
     padding: var(--spacing-lg);
@@ -126,6 +130,75 @@
     align-self: end;
 }
 
+/* Layout for Delete panel */
+.delete-box-edit-1{
+    display: none;
+}
+.delete-box-edit-2{
+    z-index: 10;
+    --top: 0;
+    width: 100%;
+    position: absolute;
+    top: var(--top);
+    left: 0;
+}
+.blur{
+    display: flex;
+    margin-bottom: 0;
+    height: 100vh;
+    background-color: rgba(103, 114, 126, 0.6);
+    justify-content: center;
+    animation: blur 0.2s forwards ease-in;
+}
+@keyframes blur {
+    0%{
+        opacity: 0.1;
+    }
+    50%{
+        opacity: 0.5;
+
+    }
+    100%{ 
+        opacity: 1;
+    }
+}
+.popup-box{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    align-self: center;
+    animation: pop 0.3s forwards ease-in;
+    width: calc(var(--width) / 1.5);
+}
+.popup-box > div:first-child h1{
+    margin: 0;
+}
+.popup-box > div{
+    margin: 0 var(--spacing-md) var(--spacing-lg);
+}
+.popup-box > div:last-child{
+    display: flex;
+    justify-content: space-between;
+}
+.popup-box > div:last-child button{
+    padding: var(--spacing-lg) var(--spacing-xl);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    border:none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+.popup-box > div:last-child button:hover{
+    opacity: 0.5;
+}
+.popup-box .cancel{
+    background-color: hsl(211, 10%, 45%);
+}
+.popup-box .delete{
+    background-color: hsl(358, 79%, 66%);
+}
+
+
 
 @media (max-width: 991.98px) {
     .dailog-panel-sm{
@@ -172,5 +245,9 @@
 
     .update-panel input[type=submit]{
         width: calc( var(--button-width) + 5%);
+    }
+
+    .popup-box{
+        width: calc(var(--width) / 1.2);
     }
 } 

@@ -3,8 +3,11 @@ import "./Layout.css"
 import UseChat from '../Hooks/useChat';
 
 const ChatBox = ({userData, id, replied, replyID, data, total}) => {
+
     const {screenSize , postComment, postReply} = UseChat();
-    const [comment, setComment]= useState();
+
+    const [comment, setComment]= useState();//saves the commment or rely text
+
     const username= userData.username;
     const userImage= userData.image.png;
 
@@ -35,7 +38,7 @@ const ChatBox = ({userData, id, replied, replyID, data, total}) => {
         <>  
             <form onSubmit={handleSubmit}>
                 <textarea name="reply" rows="10" cols="30" onChange={(e)=> setComment(e.target.value)}
-                placeholder='Add a comment....' defaultValue={ (replied && id === replyID) ? "@"+data.user.username+ ", ": null}
+                placeholder='Add a comment....'
                 value={comment}>
                 </textarea>
                 { (replied && id === replyID) ? 
@@ -48,7 +51,7 @@ const ChatBox = ({userData, id, replied, replyID, data, total}) => {
             <img className="avatar" src="./images/avatars/image-juliusomo.png" alt="avatar"></img>
             <form onSubmit={handleSubmit}>
                 <textarea name="reply" rows="10" cols="30" onChange={(e)=> setComment(e.target.value)}
-                placeholder='Add a comment....'  defaultValue={ (replied && id === replyID) ? "@"+data.user.username+ ", ": null}
+                placeholder='Add a comment....' 
                 value={comment}>
                 </textarea>
                 { (replied && id === replyID) ? 

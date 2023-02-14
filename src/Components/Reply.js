@@ -1,17 +1,18 @@
 import React, {useState} from 'react';
 import UseChat from '../Hooks/useChat';
 import ChatBox from './ChatBox';
+import Delete from './Delete';
 
 const Replay = ({userData, replies}) => {
-    const {screenSize, replied, replyID, edit, editID, 
-        editData, deleteData, replyData, postUpdate, voteAdd, voteMinus} = UseChat();
+    const {screenSize, replied, replyID, edit, editID, dlt, deleteID,
+        editData, deletePopup, replyData, postUpdate, voteAdd, voteMinus} = UseChat();
     const [comment, setComment]= useState();
     
     let totalReplies= replies.length;
 
     const handleDelete=(e)=>{
         const id= e.target.id;
-        deleteData(id);
+        deletePopup(id);
     }
 
     const handleReply=(e)=>{
@@ -41,11 +42,11 @@ const Replay = ({userData, replies}) => {
 
     return (
     <>
-        {   replies.map((reply)=>(
+        {   replies.map((reply, index)=>(
         <>  
             { screenSize ?
-            <>      
-                <div className='dailog-panel-sm' key={reply.id}>
+            <div key={index}>      
+                <div className='dailog-panel-sm'>
                    <div>
                        <div className='chat-title'>
                             <img className="avatar" src={reply.user.image.png} alt="profile"></img>
@@ -56,7 +57,7 @@ const Replay = ({userData, replies}) => {
                             { (edit && reply.id === editID) ? 
                             <form onSubmit={handleSubmit}>
                                 <textarea name="reply" rows="10" cols="30" onChange={(e)=> setComment(e.target.value)}
-                                defaultValue={"@"+ reply.replyingTo+", "+ reply.content}
+                                defaultValue={ reply.content && reply.content}
                                 value={comment}>
                                 </textarea>
                                 <input type="submit" value="UPDATE"></input>
@@ -100,9 +101,13 @@ const Replay = ({userData, replies}) => {
                     }
                 </div>
 
-            </>:
-            <>
-                <div className='dailog-panel-lg' key={reply.id}>
+                <div id={"delete-box-"+reply.id} className='delete-box-edit-2'>
+                { (dlt && deleteID===reply.id) && <Delete id={deleteID} ></Delete>}
+                </div>
+
+            </div>:
+            <div key={index}>
+                <div className='dailog-panel-lg'>
                    <div className='voting-panel'>
                             <div id={reply.id} onClick={handleAdd}>+</div>
                             <div id={'no-of-vote'+reply.id} className="no-of-vote">{reply.score}</div>
@@ -157,7 +162,11 @@ const Replay = ({userData, replies}) => {
                     }
                 </div>
 
-            </>}
+                <div id={"delete-box-"+reply.id} className='delete-box-edit-2'>
+                { (dlt && deleteID===reply.id) && <Delete id={deleteID} ></Delete>}
+                </div>
+
+            </div>}
         </>))}
     </>);
 }

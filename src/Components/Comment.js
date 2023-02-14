@@ -3,15 +3,17 @@ import "./Layout.css";
 import Reply from './Reply';
 import UseChat from '../Hooks/useChat';
 import ChatBox from './ChatBox';
+import Delete from './Delete';
 
 const Comment = ({data, userData}) => {
-    const {screenSize, replied, replyID, total, edit, editID, 
-        editData, deleteData, replyData, postUpdate, voteAdd, voteMinus} = UseChat();
+    const {screenSize, replied, replyID, total, edit, editID, dlt, deleteID,
+        editData, deletePopup, replyData, postUpdate, voteAdd, voteMinus} = UseChat();
     const [content, setContent]= useState();
+
 
     const handleDelete=(e)=>{
         const id= e.target.id;
-        deleteData(id);
+        deletePopup(id);
     }
 
     const handleReply=(e)=>{
@@ -42,11 +44,11 @@ const Comment = ({data, userData}) => {
 
     return (
     <>
-        { data.map((comment)=>(
+        { data.map((comment, index)=>(
             <>
             { screenSize ?
-            <>
-                <div key={comment.id} className='dailog-panel-sm'>
+            <div key={comment.index} >
+                <div className='dailog-panel-sm'>
                     <div>
                         <div className='chat-title'>
                                 <img className="avatar" src={comment.user.image.png} alt="profile"></img>
@@ -103,9 +105,14 @@ const Comment = ({data, userData}) => {
                 <div className='reply-panel'>
                 { comment.replies && <Reply data={data} userData={userData} replies={comment.replies}/> }
                 </div>
-            </>: 
-            <>
-                <div key={comment.id} className='dailog-panel-lg'>
+
+                <div id={"delete-box-"+comment.id} className='delete-box-edit-1'>
+                { (dlt && deleteID===comment.id) && <Delete id={deleteID} ></Delete>}
+                </div>
+
+            </div>: 
+            <div key={comment.index} >
+                <div className='dailog-panel-lg'>
                     <div className='voting-panel'>
                             <div id={comment.id} onClick={handleAdd}>+</div>
                             <div id={'no-of-vote'+comment.id} className="no-of-vote">{comment.score}</div>
@@ -162,7 +169,12 @@ const Comment = ({data, userData}) => {
                 <div className='reply-panel'>
                 { comment.replies && <Reply data={comment} userData={userData} replies={comment.replies}/> }
                 </div>
-            </>} 
+                
+                <div id={"delete-box-"+comment.id} className='delete-box-edit-1'>
+                { (dlt && deleteID===comment.id) && <Delete id={deleteID} ></Delete>}
+                </div>
+
+            </div>} 
         </>))}
     </>);
 }
