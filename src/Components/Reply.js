@@ -101,7 +101,7 @@ const Replay = ({userData, replies}) => {
                     }
                 </div>
 
-                <div id={"delete-box-"+reply.id} className='delete-box-edit-2'>
+                <div id={"delete-box-"+reply.id} className='delete-box-edit-1'>
                 { (dlt && deleteID===reply.id) && <Delete id={deleteID} ></Delete>}
                 </div>
 
@@ -162,7 +162,7 @@ const Replay = ({userData, replies}) => {
                     }
                 </div>
 
-                <div id={"delete-box-"+reply.id} className='delete-box-edit-2'>
+                <div id={"delete-box-"+reply.id} className='delete-box-edit-1'>
                 { (dlt && deleteID===reply.id) && <Delete id={deleteID} ></Delete>}
                 </div>
 
