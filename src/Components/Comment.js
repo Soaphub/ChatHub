@@ -51,9 +51,24 @@ const Comment = ({data, userData}) => {
                 <div className='dailog-panel-sm'>
                     <div>
                         <div className='chat-title'>
-                                <img className="avatar" src={comment.user.image.png} alt="profile"></img>
-                                <h1>{comment.user.username}</h1>
-                                <h2>{comment.createdAt}</h2>
+                            {   comment.user.username === "juliusomo" ?
+                            <>
+                                <div>
+                                    <img className="avatar" src={comment.user.image.png} alt="profile"></img>
+                                    <h1>{comment.user.username}</h1>
+                                    <div className='you'>
+                                        <h2>you</h2>
+                                    </div>
+                                    <h2>{comment.createdAt}</h2>
+                                </div>
+                            </>:
+                            <>
+                                <div>
+                                    <img className="avatar" src={comment.user.image.png} alt="profile"></img>
+                                    <h1>{comment.user.username}</h1>
+                                    <h2>{comment.createdAt}</h2>
+                                </div>
+                            </>}
                         </div>
                         <div className='update-panel'>
                         { (edit && comment.id === editID) ? 
@@ -120,10 +135,25 @@ const Comment = ({data, userData}) => {
                     </div>
                     <div>
                         <div className='chat-title'>
+                            {   comment.user.username === "juliusomo" ?
+                            <>
+                                <div>
+                                    <img className="avatar" src={comment.user.image.png} alt="profile"></img>
+                                    <h1>{comment.user.username}</h1>
+                                    <div className='you'>
+                                        <h2>you</h2>
+                                    </div>
+                                    <h2>{comment.createdAt}</h2>
+                                </div>
+                            </>:
+                            <>
+                                <div>
+                                    <img className="avatar" src={comment.user.image.png} alt="profile"></img>
+                                    <h1>{comment.user.username}</h1>
+                                    <h2>{comment.createdAt}</h2>
+                                </div>
+                            </>}
                             <div>
-                                <img className="avatar" src={comment.user.image.png} alt="profile"></img>
-                                <h1>{comment.user.username}</h1>
-                                <h2>{comment.createdAt}</h2>
                             </div>
                             <div className='action-panel'>
                                 {   comment.user.username === userData.username ?

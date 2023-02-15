@@ -22,8 +22,8 @@ const UseChat = () => {
     const body = document.querySelector("body");
 
     // function to get present date 
-    const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", 
-    "Octomber", "November", "December"];
+    const month = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", 
+    "Oct", "Nov", "Dec"];
     const d= new Date();
 
     useEffect(()=> {

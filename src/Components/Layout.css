@@ -50,6 +50,17 @@ html {
     display: flex;
     align-items: center;
 }
+.chat-title .you {
+    margin-left: var(--spacing-xsm);
+    padding: var(--spacing-xsm);
+    background-color: hsl(238, 40%, 52%);
+    border-radius: 2.5px;
+}
+.chat-title .you h2{
+    margin: 0 var(--spacing-xsm);
+    font-weight: 500;
+    color: white;
+}
 .action-panel h3{
     margin-right: var(--spacing-lg);
 }

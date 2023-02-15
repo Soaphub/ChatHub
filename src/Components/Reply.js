@@ -49,9 +49,24 @@ const Replay = ({userData, replies}) => {
                 <div className='dailog-panel-sm'>
                    <div>
                        <div className='chat-title'>
-                            <img className="avatar" src={reply.user.image.png} alt="profile"></img>
-                            <h1>{reply.user.username}</h1>
-                            <h2>{reply.createdAt}</h2>
+                            {   reply.user.username === "juliusomo" ?
+                            <>
+                                <div>
+                                    <img className="avatar" src={reply.user.image.png} alt="profile"></img>
+                                    <h1>{reply.user.username}</h1>
+                                    <div className='you'>
+                                        <h2>you</h2>
+                                    </div>
+                                    <h2>{reply.createdAt}</h2>
+                                </div>
+                            </>:
+                            <>
+                                <div>
+                                    <img className="avatar" src={reply.user.image.png} alt="profile"></img>
+                                    <h1>{reply.user.username}</h1>
+                                    <h2>{reply.createdAt}</h2>
+                                </div>
+                            </>}
                        </div>
                        <div className='update-panel'>
                             { (edit && reply.id === editID) ? 
@@ -115,11 +130,24 @@ const Replay = ({userData, replies}) => {
                    </div>
                    <div>
                        <div className='chat-title'>
-                           <div>
-                               <img className="avatar" src={reply.user.image.png} alt="profile"></img>
-                               <h1>{reply.user.username}</h1>
-                               <h2>{reply.createdAt}</h2>
-                           </div>
+                            {   reply.user.username === "juliusomo" ?
+                            <>
+                                <div>
+                                    <img className="avatar" src={reply.user.image.png} alt="profile"></img>
+                                    <h1>{reply.user.username}</h1>
+                                    <div className='you'>
+                                        <h2>you</h2>
+                                    </div>
+                                    <h2>{reply.createdAt}</h2>
+                                </div>
+                            </>:
+                            <>
+                                <div>
+                                    <img className="avatar" src={reply.user.image.png} alt="profile"></img>
+                                    <h1>{reply.user.username}</h1>
+                                    <h2>{reply.createdAt}</h2>
+                                </div>
+                            </>}
                            <div className='action-panel'>
                                 {   reply.user.username === "juliusomo" ?
                                     <>
