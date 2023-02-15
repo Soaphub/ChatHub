@@ -225,10 +225,13 @@ html {
         flex-direction: row;
         margin-top: var(--spacing-md)
     }
+    .voting-panel > div, .action-panel, .chat-box textarea, .popup-box > div:last-child button
+    .chat-box input[type=submit], .update-panel textarea, .update-panel input[type=submit]{
+        cursor:auto;
+    }
     .voting-panel > div:first-child, .voting-panel > div:last-child{
         padding: var(--spacing-md);
     }
-
     .chat-title{
         justify-content: initial;
     }
@@ -253,11 +256,9 @@ html {
         align-self: end;
         margin-top: var(--spacing-md);
     }
-
     .update-panel input[type=submit]{
         width: calc( var(--button-width) + 5%);
     }
-
     .popup-box{
         width: calc(var(--width) / 1.2);
     }
