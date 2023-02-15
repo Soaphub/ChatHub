@@ -70,8 +70,6 @@ export const counterSlice = createSlice({
 
 - [AnthonySistilli](https://www.youtube.com/c/AnthonySistilli) - This helped me for Redux toolkit.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
-
 ## Author
 
 - Website - [Ambadi](https://github.com/Soaphub/Mysite/)
