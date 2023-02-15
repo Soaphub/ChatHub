@@ -72,7 +72,7 @@ export const counterSlice = createSlice({
 
 ## Author
 
-- Website - [Ambadi](https://github.com/Soaphub/Mysite/)
+- Website - [Ambadi](https://soaphub.github.io/Mysite/)
 - Frontend Mentor - [@Soaphub](https://www.frontendmentor.io/profile/Soaphub)
 
 
